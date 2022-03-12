@@ -1,0 +1,14 @@
+.container-fluid {
+  background-color: #703b09;
+  display: flex;
+}
+
+.nav-item :hover {
+  background-color: #8f5c2c;
+  border-bottom: 4px solid #40a4c8;
+}
+
+img {
+  border-radius: 5px;
+  margin: 5px;
+}
