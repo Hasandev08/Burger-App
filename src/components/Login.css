@@ -40,3 +40,7 @@ button {
   margin: 10px;
   font-weight: 700;
 }
+
+p {
+  color: red;
+}
