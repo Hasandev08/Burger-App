@@ -2,20 +2,65 @@ import React, { useState, useEffect } from "react";
 import "./Login.css";
 
 const Login = () => {
-  const [values, setValues] = useState({ email: "", password: "" });
+  const [values, setValues] = useState([
+    {
+      name: "email",
+      placeholder: "Enter Email",
+      value: "",
+      error: false,
+      errorMessage: "",
+    },
+    {
+      name: "password",
+      placeholder: "Enter Password",
+      value: "",
+      error: false,
+      errorMessage: "",
+    },
+  ]);
   const [errors, setErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
+  const handleChange = (value, index) => {
+    const tempValues = [...values];
+    tempValues[index].value = value;
+    validator(tempValues);
+    setValues(tempValues);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setErrors(validator(values));
+    validator(values);
+
     setIsSubmit(true);
   };
+
+  const validator = (values) => {
+    const tempValues = [...values];
+
+    if(values[0].value.length === 0){
+      tempValues[0].error = true;
+      tempValues[0].errorMessage = "Username is required";
+      setValues(tempValues);
+      return;
+    } else {
+        tempValues[0].errorMessage = " ";
+    }
+
+    if(values[1].value.length === 0){
+      tempValues[1].error = true;
+      tempValues[1].errorMessage = "Password is required";
+      setValues(tempValues);
+      return;
+    } else if(values[1].value.length < 6){
+      tempValues[1].error = true;
+      tempValues[1].errorMessage = "WEAK_PASSWORD: Password should be atleast 6 characters";
+      setValues(tempValues);
+      return;
+    } else {
+      tempValues[1].errorMessage = " ";
+    }
+  }
 
   useEffect(() => {
     console.log(errors);
@@ -24,49 +69,28 @@ const Login = () => {
     }
   }, [errors]);
 
-  const validator = (values) => {
-    const error = {};
-    //const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-
-    if (!values.email) {
-      error.email = "Please enter a valid username";
-    }
-    if (!values.password) {
-      error.password = "Please enter a valid password";
-    } else if (values.password.length < 6) {
-      error.password = "WEAK_PASSWORD: Password should be atleast 6 characters";
-    }
-
-    return error;
-  };
-
   return (
-    <form action="" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className="form-inner">
-        <div>
-          <label htmlFor="email"></label>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            value={values.email}
-            onChange={handleChange}
-            placeholder="E-mail Address"
-          />
-        </div>
-        <p>{errors.email}</p>
-        <div>
-          <label htmlFor="password"></label>
-          <input
-            type="password"
-            name="password"
-            id="password"
-            value={values.password}
-            onChange={handleChange}
-            placeholder="Password"
-          />
-        </div>
-        <p>{errors.password}</p>
+        {values.map((item, index) => (
+          <div key={index.toString()} >
+            <div>
+              <label htmlFor={item.name}></label>
+              <input
+                type={item.name}
+                name={item.name}
+                id={item.name}
+                onChange={(e) => handleChange(e.target.value, index)}
+                placeholder={item.placeholder}
+              />
+            </div>
+            {
+              item.error ? <p>{item.errorMessage}</p> : null
+            }
+            
+          </div>
+        ))}
+
         <button type="submit">SUBMIT</button>
       </div>
     </form>
