@@ -1,0 +1,119 @@
+.Burger {
+    display: block;
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 170px;
+    height: 250px;
+    text-align: center;
+    font-weight: 700;
+    overflow-y: auto;
+    font-size: 1.2rem;
+}
+.Burger p {
+    color: black;
+    margin: 18px auto;
+}
+.Burger .Burger-Top {
+    height: 32%;
+    background: linear-gradient(#bc581e,#e27b36);
+    border-radius: 50% 50% 0 0;
+    position: relative;
+    width: 32%;
+    box-shadow: inset -15px 0 #c15711;
+    margin: 1% auto;
+    display: block;
+}
+.Burger .Burger-Bottom {
+    width: 32%;
+    box-shadow: inset -15px 0 #c15711;
+    margin: 1% auto;
+    background: linear-gradient(#f08e4a,#e27b36);
+    border-radius: 0 0 30px 30px;
+    height: 20%;
+    display: block;
+}
+.burger-app .app-functions {
+    width: 100%;
+    background-color: #cf8f2e;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    box-shadow: 0 2px 1px #ccc;
+    margin: auto;
+    padding: 10px 0;
+}
+.burger-app .app-functions p{
+    color: black;
+    display: block;
+    margin-top: 20px;
+    font-size: large;
+}
+.App-ingredient {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.ingredient {
+    padding: 10px;
+    font-weight: 700;
+    width: 80px;
+    display: block;
+}
+.less button{
+    color: white;
+    background-color: #d39952;
+    display: block;
+    font: inherit;
+    padding: 5px;
+    margin: 0 5px;
+    width: 80px;
+    border: 1px solid #aa6817;
+    cursor: pointer;
+    outline: none;
+}
+.less button:hover{
+    background-color: #e2af71;
+}
+.less button:disabled{
+    background-color: #ac9980;
+    border: 1px solid #7e7365;
+    color: #ccc;
+    cursor: not-allowed;
+}
+.more button {
+    background-color: #8f5e1e;
+    color: #fff;
+    display: block;
+    font: inherit;
+    padding: 5px;
+    margin: 0 5px;
+    width: 80px;
+    border: 1px solid #aa6817;
+    cursor: pointer;
+    outline: none;
+}
+.more button:hover{
+    background-color: #96703e;
+}
+.sign-up {
+    background-color: #dad735;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid #966909;
+    color: #966909;
+    font-family: inherit;
+    font-size: 1.2em;
+    font-weight: 500;
+    padding: 15px 30px;
+    box-shadow: 2px 2px 2px #966909;
+}
+.sign-up:hover{
+    background-color: #b3ff66;
+}
+.sign-up:disabled{
+    background-color: #c7c6c6;
+    cursor: not-allowed;
+    border: 1px solid #ccc;
+    color: #888;
+}
