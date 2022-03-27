@@ -1,36 +1,6 @@
-.Burger {
-    display: block;
-    width: 100%;
-    margin-top: 100px;
-    margin-bottom: 170px;
-    height: 250px;
-    text-align: center;
-    font-weight: 700;
-    overflow-y: auto;
-    font-size: 1.2rem;
-}
-.Burger p {
-    color: black;
-    margin: 18px auto;
-}
-.Burger .Burger-Top {
-    height: 32%;
-    background: linear-gradient(#bc581e,#e27b36);
-    border-radius: 50% 50% 0 0;
-    position: relative;
-    width: 32%;
-    box-shadow: inset -15px 0 #c15711;
-    margin: 1% auto;
-    display: block;
-}
-.Burger .Burger-Bottom {
-    width: 32%;
-    box-shadow: inset -15px 0 #c15711;
-    margin: 1% auto;
-    background: linear-gradient(#f08e4a,#e27b36);
-    border-radius: 0 0 30px 30px;
-    height: 20%;
-    display: block;
+.burger-app{
+    margin: 0;
+    padding: 0;
 }
 .burger-app .app-functions {
     width: 100%;
@@ -39,7 +9,7 @@
     flex-flow: column;
     align-items: center;
     box-shadow: 0 2px 1px #ccc;
-    margin: auto;
+    margin: auto 0px;
     padding: 10px 0;
 }
 .burger-app .app-functions p{
