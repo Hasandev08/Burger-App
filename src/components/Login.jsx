@@ -5,14 +5,14 @@ const Login = () => {
   const [values, setValues] = useState([
     {
       name: "email",
-      placeholder: "Enter Email",
+      placeholder: "Email-Address",
       value: "",
       error: false,
       errorMessage: "",
     },
     {
       name: "password",
-      placeholder: "Enter Password",
+      placeholder: "Password",
       value: "",
       error: false,
       errorMessage: "",
@@ -24,7 +24,6 @@ const Login = () => {
   const handleChange = (value, index) => {
     const tempValues = [...values];
     tempValues[index].value = value;
-    validator(tempValues);
     setValues(tempValues);
   };
 
@@ -38,25 +37,23 @@ const Login = () => {
   const validator = (values) => {
     const tempValues = [...values];
 
-    if(values[0].value.length === 0){
+    if (values[0].value.length === 0) {
       tempValues[0].error = true;
       tempValues[0].errorMessage = "Username is required";
       setValues(tempValues);
-      return;
+
     } else {
-        tempValues[0].errorMessage = " ";
+      tempValues[0].errorMessage = " ";
     }
 
-    if(values[1].value.length === 0){
+    if (values[1].value.length === 0) {
       tempValues[1].error = true;
       tempValues[1].errorMessage = "Password is required";
       setValues(tempValues);
-      return;
-    } else if(values[1].value.length < 6){
+    } else if (values[1].value.length < 6) {
       tempValues[1].error = true;
       tempValues[1].errorMessage = "WEAK_PASSWORD: Password should be atleast 6 characters";
       setValues(tempValues);
-      return;
     } else {
       tempValues[1].errorMessage = " ";
     }
@@ -87,7 +84,7 @@ const Login = () => {
             {
               item.error ? <p>{item.errorMessage}</p> : null
             }
-            
+
           </div>
         ))}
 
