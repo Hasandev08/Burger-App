@@ -1,32 +1,41 @@
 import React, { useState } from "react";
+import Burger from "./Burger";
+import { NavLink } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
-  const [values, setValues] = useState([
+  const values = [
     {
       name: "Lettuce",
+      price: 0.5,
     },
     {
       name: "Bacon",
+      price: 0.7,
     },
     {
       name: "Cheese",
+      price: 0.4,
     },
     {
       name: "Meat",
+      price: 1.3,
     },
-  ]);
+  ];
+
+  const [price, setPrice] = useState(3);
+
+  const handleAddition = (ingrPrice) => setPrice(price + ingrPrice);
+  const handleSubtraction = (ingrPrice) => setPrice(price - ingrPrice);
 
   return (
     <div className="burger-app">
-      <div className="Burger">
-        <div className="Burger-Top"></div>
-        <p>No Ingredients Added</p>
-        <div className="Burger-Bottom"></div>
-      </div>
+      <Burger />
       <div className="app-functions">
         <p>
-          Current Price: <b>$3.00</b>
+          <div>
+            Current Price: <b>${price}</b>
+          </div>
         </p>
         <div className="App-ingredient">
           {values.map((item, index) => (
@@ -36,17 +45,23 @@ const Home = () => {
                   <p>{item.name}</p>
                 </div>
                 <div className="less">
-                  <button>Less</button>
+                  <button
+                    onClick={() => handleSubtraction(item.price)}
+                  >
+                    Less
+                  </button>
                 </div>
                 <div className="more">
-                  <button>More</button>
+                  <button onClick={() => handleAddition(item.price)}>
+                    More
+                  </button>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <button className="sign-up" disabled>
-          SIGN UP TO ORDER
+        <button className="sign-up">
+          <NavLink className="nav-link" to="/signup">SIGN UP TO ORDER</NavLink>
         </button>
       </div>
     </div>
