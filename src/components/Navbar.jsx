@@ -5,7 +5,7 @@ import burger from "../assets/burger.jpg";
 const Navbar = () => {
   return (
     <div className="app-header">
-      <nav className="navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar-expand-lg fixed-top navbar-light bg-light">
         <div className="container-fluid">
           <div className="container">
             <a className="navbar-brand" href="#">
