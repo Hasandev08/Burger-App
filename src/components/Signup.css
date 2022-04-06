@@ -1,0 +1,33 @@
+.signup{
+     margin-top: 100px;
+ }
+h1{
+     text-align: center;
+ }
+.Danger {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-right: 30px;
+    margin-top: 70px;
+    margin-left: 41%;
+    font-weight: 700;
+}
+.danger-button {
+    color: red;
+    text-decoration: none;
+}
+.danger-button:hover {
+    color: red;
+}
+.Success{
+    background-color: transparent;
+    color: #5c9210;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding-left: 20px;
+    margin-top: 70px;
+    font-weight: 700;
+}
