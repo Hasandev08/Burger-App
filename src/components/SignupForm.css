@@ -1,0 +1,48 @@
+.form {
+    margin: 20px auto;
+    width: 500px;
+    text-align: center;
+    box-shadow: 0 2px 3px #ccc;
+    border: 1px solid #eee;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.form h4 {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+    margin: 30px auto;
+}
+.input {
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 6px 10px;
+    margin: 0% !important;
+    display: block;
+    width: 95%;
+    box-sizing: border-box;
+    margin: 25px 10px !important
+}
+#dropdown {
+    outline: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 6px 10px;
+    display: block;
+    width: 95%;
+    box-sizing: border-box;
+    margin: 25px 10px 0px !important
+}
+.Success {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px !important;
+    font-weight: 700;
+}
+
+  
