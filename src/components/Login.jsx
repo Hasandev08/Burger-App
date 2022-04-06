@@ -1,25 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Login.css";
 
-const Login = () => {
+const Login = ({ login }) => {
   const [values, setValues] = useState([
     {
       name: "email",
       placeholder: "Email-Address",
       value: "",
-      error: false,
       errorMessage: "",
     },
     {
       name: "password",
       placeholder: "Password",
       value: "",
-      error: false,
       errorMessage: "",
     },
   ]);
-  const [errors, setErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
 
   const handleChange = (value, index) => {
     const tempValues = [...values];
@@ -30,15 +26,13 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     validator(values);
-
-    setIsSubmit(true);
+    login(values[0].value)
   };
 
   const validator = (values) => {
     const tempValues = [...values];
 
     if (values[0].value.length === 0) {
-      tempValues[0].error = true;
       tempValues[0].errorMessage = "Username is required";
       setValues(tempValues);
 
@@ -47,24 +41,15 @@ const Login = () => {
     }
 
     if (values[1].value.length === 0) {
-      tempValues[1].error = true;
       tempValues[1].errorMessage = "Password is required";
       setValues(tempValues);
     } else if (values[1].value.length < 6) {
-      tempValues[1].error = true;
       tempValues[1].errorMessage = "WEAK_PASSWORD: Password should be atleast 6 characters";
       setValues(tempValues);
     } else {
       tempValues[1].errorMessage = " ";
     }
   }
-
-  useEffect(() => {
-    console.log(errors);
-    if (Object.keys(errors).length === 0 && isSubmit) {
-      console.log(values);
-    }
-  }, [errors]);
 
   return (
     <form onSubmit={handleSubmit}>
@@ -74,9 +59,9 @@ const Login = () => {
             <div>
               <label htmlFor={item.name}></label>
               <input
+                className="form-input"
                 type={item.name}
                 name={item.name}
-                id={item.name}
                 onChange={(e) => handleChange(e.target.value, index)}
                 placeholder={item.placeholder}
               />
@@ -87,7 +72,6 @@ const Login = () => {
 
           </div>
         ))}
-
         <button type="submit">SUBMIT</button>
       </div>
     </form>
