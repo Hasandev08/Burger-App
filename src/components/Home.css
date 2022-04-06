@@ -9,7 +9,7 @@
     flex-flow: column;
     align-items: center;
     box-shadow: 0 2px 1px #ccc;
-    margin: auto 0px;
+    margin-top: 170px;
     padding: 10px 0;
 }
 .burger-app .app-functions p{
@@ -66,19 +66,19 @@
 .more button:hover{
     background-color: #96703e;
 }
-.sign-up {
+.sign-up .link {
     background-color: #dad735;
     outline: none;
     cursor: pointer;
     border: 1px solid #966909;
-    color: #966909;
-    font-family: inherit;
+    color: #966909 !important;
     font-size: 1.2em;
     font-weight: 500;
     padding: 15px 30px;
     box-shadow: 2px 2px 2px #966909;
+    text-decoration: none;
 }
-.sign-up:hover{
+.sign-up .link:hover{
     background-color: #b3ff66;
 }
 .sign-up:disabled{
