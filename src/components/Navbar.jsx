@@ -2,15 +2,15 @@ import "./Navbar.css";
 import { NavLink } from "react-router-dom";
 import burger from "../assets/burger.jpg";
 
-const Navbar = () => {
+const Navbar = ({ logout, user }) => {
   return (
     <div className="app-header">
       <nav className="navbar-expand-lg fixed-top navbar-light bg-light">
         <div className="container-fluid">
           <div className="container">
-            <a className="navbar-brand" href="#">
+            <div className="navbar-brand">
               <img src={burger} alt="burgers" width="60" height="45"></img>
-            </a>
+            </div>
           </div>
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
@@ -20,9 +20,14 @@ const Navbar = () => {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/login">
-                  Login
-                </NavLink>
+                {
+                  user ? <div onClick={logout} className="nav-link" >
+                    Logout
+                  </div> : <NavLink className="nav-link" to="/login">
+                    Login
+                  </NavLink>
+                }
+
               </li>
             </ul>
           </div>
